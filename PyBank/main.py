@@ -11,6 +11,7 @@ diff = []
 #opening up the csv file to read and gather information from it
 with open(r'C:\Users\Ryan Kracaw\Desktop\PyBank\Resources\budget_data.csv', 'r') as csvfile:
     csvreader = list(csv.reader(csvfile, delimiter=','))
+    csv_header = next(csvreader)
     for row in csvreader[1:]: #the [1:] skips the first row since that is a header
         months_list.append(row[0]) #makes a list of the months for later use
         money = money + int(row[1]) #sums up the profits/loses
