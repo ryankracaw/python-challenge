@@ -11,7 +11,7 @@ doane = 0
 #opening up the csv file to read and gather information from it
 with open(r'C:\Users\Ryan Kracaw\Desktop\PyPoll\Resources\election_data.csv', 'r') as csvfile:
     csvreader = list(csv.reader(csvfile, delimiter=','))
-    csv_header = next(csvreader
+    csv_header = next(csvreader)
     for row in csvreader[1:]:
         votes_list.append(row[0])
         candidates_list.append(row[2])
