@@ -11,10 +11,12 @@ doane = 0
 #opening up the csv file to read and gather information from it
 with open(r'C:\Users\Ryan Kracaw\Desktop\PyPoll\Resources\election_data.csv', 'r') as csvfile:
     csvreader = list(csv.reader(csvfile, delimiter=','))
+    csv_header = next(csvreader
     for row in csvreader[1:]:
         votes_list.append(row[0])
         candidates_list.append(row[2])
 
+#counts the candidates votes
 for candidate in candidates_list:
     if candidate == 'Charles Casper Stockham':
         stockham += 1
@@ -23,6 +25,7 @@ for candidate in candidates_list:
     elif candidate == 'Raymon Anthony Doane':
         doane += 1
 
+#calculates the percent for candidates
 stockham_percent = round((stockham/len(votes_list)) *100 ,3)
 degette_percent = round((degette/len(votes_list)) *100 ,3)
 doane_percent = round((doane/len(votes_list)) *100 ,3)
@@ -36,6 +39,8 @@ print("Charles Casper Stockham: " + str(stockham_percent) + "% " + str(stockham)
 print("Diana DeGette: " + str(degette_percent) + "% " + str(degette))
 print("Raymon Anthony Doane: " + str(doane_percent) + "% " + str(doane))
 print("-"*40)
+
+#finds the winner based on number of votes
 if stockham > degette and stockham > doane:
     print("Winner: Charles Casper Stockham")
 elif degette > stockham and degette > doane:
